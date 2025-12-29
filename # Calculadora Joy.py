@@ -1,0 +1,56 @@
+# Calculadora Joy
+# Autor: Joyne
+# Linguagem: Python
+import time  
+
+def menu():
+    print("==============================")
+    print("       CALCULADORA JOY")
+    print("==============================")
+    print("Escolha uma operação:")
+    print("1 - Soma")
+    print("2 - Subtração")
+    print("3 - Multiplicação")
+    print("4 - Divisão")
+    print("0 - Sair")
+    print("==============================")
+
+def calculadora():
+    while True:
+        menu()
+        opcao = input("Digite uma opção (para escolher o tipo de operação): ")
+
+        if opcao == "0":
+            print("Matando a Calculadora Joy...")
+            time.sleep (5)
+            break
+
+        if opcao not in ["1", "2", "3", "4"]:
+            print("Opção inválida! Tente novamente.\n")
+            continue
+
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Erro: digite apenas números válidos!\n")
+            continue
+
+        if opcao == "1":
+            resultado = num1 + num2
+            print(f"Resultado da soma: {resultado:.2f}\n")
+        elif opcao == "2":
+            resultado = num1 - num2
+            print(f"Resultado da subtração: {resultado:.2f}\n")
+        elif opcao == "3":
+            resultado = num1 * num2
+            print(f"Resultado da multiplicação: {resultado:.2f}\n")
+        elif opcao == "4":
+            if num2 == 0:
+                print("Erro: divisão por zero não é permitida!\n")
+            else:
+                resultado = num1 / num2
+                print(f"Resultado da divisão: {resultado:.2f}\n")
+
+if __name__ == "__main__":
+    calculadora()
